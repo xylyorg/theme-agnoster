@@ -263,6 +263,10 @@ function get_hostname -d "Set current hostname to prompt variable $HOSTNAME_PROM
   end
 end
 
+function prompt_start -d "Start with a space"
+  prompt_segment $color_user_bg $color_dir_bg
+end
+
 function prompt_dir -d "Display the current directory"
   prompt_segment $color_dir_bg $color_dir_str (prompt_pwd)
 end
@@ -372,6 +376,7 @@ end
 
 function fish_prompt
   set -g RETVAL $status
+  prompt_start
   prompt_status
   prompt_user
   prompt_dir
